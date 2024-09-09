@@ -1,18 +1,17 @@
-import React from 'react';
-import cover from "../../../../assets/images/cover.png";
+// import cover from "../../../../assets/images/cover.png";
 import avatar from "../../../../assets/images/avatar-default.png";
 import {S} from "../Profile_Styles";
 
 export const ProfileHeader = () => {
     return (
-        <div className='ProfileHeader'>
-            <S.PageCover src={cover} alt="cover"/>
-            <div>
+        <S.ProfileHeader>
+            <S.PageCover/>
+            <S.ProfileHeaderWrapper>
                 <S.Avatar src={avatar} alt="Фотография пользователя"/>
-                <div className='ProfileInfo'>
+                <S.ProfileInfo>
                     description
-                </div>
-            </div>
-        </div>
+                </S.ProfileInfo>
+            </S.ProfileHeaderWrapper>
+        </S.ProfileHeader>
     );
 };

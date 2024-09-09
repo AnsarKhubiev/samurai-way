@@ -1,4 +1,3 @@
-import React from 'react';
 import {ProfileHeader} from "./profileHeader/ProfileHeader";
 import {S} from "./Profile_Styles";
 

@@ -1,5 +1,4 @@
-import React from 'react';
-import './App.css';
+import "./App.css";
 import {Header} from "./layout/header/Header";
 import {NavBar} from "./layout/navBar/NavBar";
 import {Profile} from "./layout/sections/profile/Profile";
@@ -23,9 +22,11 @@ const StyledApp = styled.div`
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 15px;
   display: grid;
   grid-template-columns: 2fr 10fr;
   grid-template-rows: 50px 1fr;
+  gap: 16px;
   grid-template-areas:
             'h h'
             'n c';

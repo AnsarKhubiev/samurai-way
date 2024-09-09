@@ -6,6 +6,10 @@ const NavBar = styled.nav`
   flex-direction: column;
 `
 
+const Menu = styled.ul`
+`
+
 export const S = {
     NavBar,
+    Menu,
 }
