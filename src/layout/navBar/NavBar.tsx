@@ -1,28 +1,33 @@
 import React from "react";
 import {S} from "./NavBar_Styles";
+import {NavLink} from "react-router-dom";
+import {Icon} from "../../components/Icon";
 
 export const NavBar = () => {
     return (
         <S.NavBar>
             <S.Menu>
                 <S.LeftMenuItemContainer>
-                    <a href="#">Profile</a>
+                    <NavLink to="/profile" >
+                        <Icon iconId='profile' height={20} width={20} viewBox='0 0 20 20'/>
+                        Profile
+                    </NavLink>
                 </S.LeftMenuItemContainer>
 
                 <S.LeftMenuItemContainer>
-                    <a href="#">Messages</a>
+                    <NavLink to="/dialogs">Messages</NavLink>
                 </S.LeftMenuItemContainer>
 
                 <S.LeftMenuItemContainer>
-                    <a href="#">News</a>
+                    <NavLink to="/news">News</NavLink>
                 </S.LeftMenuItemContainer>
 
                 <S.LeftMenuItemContainer>
-                    <a href="#">Music</a>
+                    <NavLink to="/music">Music</NavLink>
                 </S.LeftMenuItemContainer>
 
                 <S.LeftMenuItemContainer>
-                    <a href="#">Settings</a>
+                    <NavLink to="/settings">Settings</NavLink>
                 </S.LeftMenuItemContainer>
             </S.Menu>
         </S.NavBar>

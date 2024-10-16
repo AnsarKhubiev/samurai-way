@@ -11,7 +11,12 @@ const Menu = styled.ul`
 `
 
 const LeftMenuItemContainer = styled.li`
-    color: ${theme.colors.colorTextPrimary};
+  height: 30px;
+  color: ${theme.colors.colorTextPrimary};
+
+  .active {
+    color: ${theme.colors.accent};
+  }
 `
 
 export const S = {

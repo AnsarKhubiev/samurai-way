@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 13px;
   }
   a {
     text-decoration: none;
@@ -22,9 +23,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${theme.colors.primaryBg};
     color: ${theme.colors.colorTextPrimary};
-    // font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    // 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    // -webkit-font-smoothing: antialiased;
-    // -moz-osx-font-smoothing: grayscale;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
   }
 `
