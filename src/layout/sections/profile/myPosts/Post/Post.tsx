@@ -2,7 +2,7 @@ import {S} from "./Post_Styles";
 import avatar from "../../../../../assets/images/avatar-default.png"
 
 type PostPropsType = {
-    message: string,
+    message: string
     likeCounts: number
 }
 
@@ -11,7 +11,10 @@ export const Post = (props: PostPropsType) => {
         <S.Post>
             <img src={avatar} alt="avatar"/>
             <span>{props.message}</span>
-            <div><span>like {props.likeCounts}</span></div>
+            <div>
+                <span>like</span>
+                {props.likeCounts}
+            </div>
         </S.Post>
     );
 };

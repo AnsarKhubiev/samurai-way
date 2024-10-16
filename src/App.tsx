@@ -2,9 +2,12 @@ import "./App.css";
 import {Header} from "./layout/header/Header";
 import {NavBar} from "./layout/navBar/NavBar";
 import styled from "styled-components";
-
-
 import {Profile} from "./layout/sections/profile/Profile";
+import {Dialogs} from "./layout/sections/dialogs/Dialogs";
+import {Route, Routes} from "react-router-dom";
+import {Music} from "./layout/sections/music/Music";
+import {News} from "./layout/sections/news/News";
+import {Settings} from "./layout/sections/settings/Settings";
 
 const App = () => {
     return (
@@ -12,7 +15,13 @@ const App = () => {
             <Header/>
             <NavBar/>
             <ContentWrap>
-                <Profile/>
+                <Routes>
+                    <Route path="profile" Component={Profile}/>
+                    <Route path="dialogs" Component={Dialogs}/>
+                    <Route path="news" Component={News}/>
+                    <Route path="music" Component={Music}/>
+                    <Route path="settings" Component={Settings}/>
+                </Routes>
             </ContentWrap>
         </StyledApp>
     )

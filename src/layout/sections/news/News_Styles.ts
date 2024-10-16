@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-const Dialogs = styled.div`
-`
+const News = styled.div``
 
 export const S = {
-    Dialogs,
+    News,
 }

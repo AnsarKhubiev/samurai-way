@@ -11,7 +11,29 @@ const Menu = styled.ul`
 `
 
 const LeftMenuItemContainer = styled.li`
-    color: ${theme.colors.colorTextPrimary};
+  height: 30px;
+  color: ${theme.colors.colorTextPrimary};
+  
+  a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+  
+  svg {
+    color: ${theme.colors.accent};
+    margin-left: 6px;
+  }
+
+  .active {
+    color: ${theme.colors.accent};
+  }
+  
+  &:hover {
+    background-color: ${theme.colors.transparentGray};
+    border-radius: 4px;
+  }
 `
 
 export const S = {
