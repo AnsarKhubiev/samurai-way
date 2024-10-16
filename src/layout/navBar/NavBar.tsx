@@ -5,11 +5,25 @@ export const NavBar = () => {
     return (
         <S.NavBar>
             <S.Menu>
-                <li><a href='#'>Profile</a></li>
-                <li><a href='#'>Messages</a></li>
-                <li><a href='#'>News</a></li>
-                <li><a href='#'>Music</a></li>
-                <li><a href='#'>Settings</a></li>
+                <S.LeftMenuItemContainer>
+                    <a href="#">Profile</a>
+                </S.LeftMenuItemContainer>
+
+                <S.LeftMenuItemContainer>
+                    <a href="#">Messages</a>
+                </S.LeftMenuItemContainer>
+
+                <S.LeftMenuItemContainer>
+                    <a href="#">News</a>
+                </S.LeftMenuItemContainer>
+
+                <S.LeftMenuItemContainer>
+                    <a href="#">Music</a>
+                </S.LeftMenuItemContainer>
+
+                <S.LeftMenuItemContainer>
+                    <a href="#">Settings</a>
+                </S.LeftMenuItemContainer>
             </S.Menu>
         </S.NavBar>
     );

@@ -39,5 +39,4 @@ export const S = {
     ProfileHeader,
     ProfileHeaderWrapper,
     ProfileInfo,
-
 }

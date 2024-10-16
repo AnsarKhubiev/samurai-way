@@ -14,7 +14,11 @@ const Logo = styled.img`
   width: 50px;
 `
 
+const HomeLink = styled.a`
+`
+
 export const S = {
     Header,
+    HomeLink,
     Logo,
 }

@@ -1,8 +1,10 @@
 import "./App.css";
 import {Header} from "./layout/header/Header";
 import {NavBar} from "./layout/navBar/NavBar";
-import {Profile} from "./layout/sections/profile/Profile";
 import styled from "styled-components";
+
+
+import {Profile} from "./layout/sections/profile/Profile";
 
 const App = () => {
     return (

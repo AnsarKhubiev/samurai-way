@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${theme.colors.primaryBg};
-    color: ${theme.colors.whiteFont};
+    color: ${theme.colors.colorTextPrimary};
     // font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     // 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     // -webkit-font-smoothing: antialiased;

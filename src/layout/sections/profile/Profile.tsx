@@ -1,13 +1,12 @@
-import {ProfileHeader} from "./profileHeader/ProfileHeader";
 import {S} from "./Profile_Styles";
+import {ProfileHeader} from "./profileHeader/ProfileHeader";
+import {MyPosts} from "./myPosts/MyPosts";
 
 export const Profile = () => {
     return (
         <S.Profile>
             <ProfileHeader/>
-            <div>My posts</div>
-            <div>post 1</div>
-            <div>post 2</div>
+            <MyPosts/>
         </S.Profile>
     );
 };
