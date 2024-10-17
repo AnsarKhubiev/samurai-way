@@ -1,24 +1,19 @@
 import styled from "styled-components";
 import {theme} from "../../../styles/theme";
+import {Container} from "../../../components/Container";
+import {font} from "../../../styles/Common";
 
 const Profile = styled.div`
-  background-color: ${theme.colors.secondaryBg};
+  display: grid;
 `
-
-const ProfileHeader = styled.div`
-outline: 1px solid red;
-`
-
-const PageCover = styled.div`
-  width: 100%;
+const PageCover = styled(Container)`
   height: 252px;
-  background-color: rgba(207, 217, 233, .32);
+  background-color: ${theme.colors.ProfileCoverBg};
 `
-const ProfileHeaderWrapper = styled.div`
-  outline: 1px solid red;
+const ProfileHeaderWrapper = styled(Container)`
   display: flex;
-  position: relative;
-  margin-top: -25px;
+  column-gap: 16px;
+  margin-top: -50px;
   padding: 20px;
 `
 
@@ -26,17 +21,23 @@ const Avatar = styled.img`
   width: 150px;
   border: 3px solid ${theme.colors.secondaryBg};
   border-radius: 50%;
-  margin-top: -70px;
+  margin-top: -95px;
 `
 
 const ProfileInfo = styled.div`
+    h2 {
+      font: ${font({weight: 500, Fmin: 21, Fmax: 21, lineHeight: '26px'})}
+    }
+    span {
+      display: inline-block;
+      margin-top: 6px;
+    }
 `
 
 export const S = {
     Profile,
     PageCover,
     Avatar,
-    ProfileHeader,
     ProfileHeaderWrapper,
     ProfileInfo,
 }

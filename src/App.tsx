@@ -16,11 +16,11 @@ const App = () => {
             <NavBar/>
             <ContentWrap>
                 <Routes>
-                    <Route path="profile" Component={Profile}/>
-                    <Route path="dialogs" Component={Dialogs}/>
-                    <Route path="news" Component={News}/>
-                    <Route path="music" Component={Music}/>
-                    <Route path="settings" Component={Settings}/>
+                    <Route path="profile" element={<Profile/>}/>
+                    <Route path="dialogs/*" element={<Dialogs/>}/>
+                    <Route path="news" element={<News/>}/>
+                    <Route path="music" element={<Music/>}/>
+                    <Route path="settings" element={<Settings/>}/>
                 </Routes>
             </ContentWrap>
         </StyledApp>
@@ -36,7 +36,7 @@ const StyledApp = styled.div`
   padding: 0 15px;
   display: grid;
   grid-template-columns: 2fr 10fr;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 48px 1fr;
   gap: 16px;
   grid-template-areas:
             'h h'

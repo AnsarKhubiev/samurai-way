@@ -23,7 +23,6 @@ const LeftMenuItemContainer = styled.li`
   
   svg {
     color: ${theme.colors.accent};
-    margin-left: 6px;
   }
 
   .active {

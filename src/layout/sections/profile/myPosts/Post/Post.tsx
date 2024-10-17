@@ -9,12 +9,17 @@ type PostPropsType = {
 export const Post = (props: PostPropsType) => {
     return (
         <S.Post>
-            <img src={avatar} alt="avatar"/>
-            <span>{props.message}</span>
-            <div>
-                <span>like</span>
+            <S.PostHeader>
+                <img src={avatar} alt="avatar"/>
+                <span>Ansar Khubiev</span>
+            </S.PostHeader>
+            <S.PostText>
+                <span>{props.message}</span>
+            </S.PostText>
+            <S.PostButtons>
+                <button>like</button>
                 {props.likeCounts}
-            </div>
+            </S.PostButtons>
         </S.Post>
     );
 };

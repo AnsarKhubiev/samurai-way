@@ -6,5 +6,6 @@ export const theme = {
         colorTextSecondary: '#828282',
         accent: '#71AAEB',
         transparentGray: 'rgba(255, 255, 255, 0.14)',
+        ProfileCoverBg: 'rgba(207, 217, 233, .32)',
     },
 }
