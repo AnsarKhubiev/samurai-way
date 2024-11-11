@@ -1,7 +1,14 @@
 import {S} from "./MyPosts_Styles";
 import {Post} from "./Post/Post";
+import {PostType} from "../../../../index";
 
-export const MyPosts = () => {
+type MyPostsPropsType = {
+    posts: PostType[]
+}
+
+export const MyPosts = (props: MyPostsPropsType) => {
+
+
     return (
         <div>
             <S.SubmitPost>
@@ -9,8 +16,7 @@ export const MyPosts = () => {
                 <button>Опубликовать</button>
             </S.SubmitPost>
             <S.Posts>
-                <Post message="Hi, how are you?" likeCounts={15}/>
-                <Post message="It's my first post!" likeCounts={20}/>
+                {props.posts.map(p => <Post id={p.id} message={p.message} likeCounts={p.likesCount}/>)}
             </S.Posts>
         </div>
     );

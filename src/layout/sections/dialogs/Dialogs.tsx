@@ -1,40 +1,26 @@
 import React from "react";
 import {S} from "./Dialogs_Styles"
-import {NavLink} from "react-router-dom";
 import {Container} from "../../../components/Container";
+import {DialogsItem} from "./dialogsItem/DialogsItem";
+import {Message} from "./message/Message";
+import {DialogItemType, MessageType} from "../../../index";
 
-type DialogItemPropsType = {
-    name: string
-    id: string
+type DialogsPropsType = {
+    dialogs: DialogItemType[]
+    messages: MessageType[]
 }
 
-type MessagePropsType = {
-    message: string
-}
+export const Dialogs = (props: DialogsPropsType) => {
 
-const DialogItem = ({name, id}: DialogItemPropsType) => {
-    return (
-        <S.Item id={id}>
-            <NavLink to={id}>{name}</NavLink>
-        </S.Item>
-    )
-}
 
-const Message = ({message}: MessagePropsType) => <NavLink to="1">{message}</NavLink>
 
-export const Dialogs = () => {
+    const dialogElements = props.dialogs.map(d => <DialogsItem name={d.name} id={d.id}/>)
+    const messagesElements = props.messages.map(m => <Message message={m.message} id={m.id}/>)
+
     return (
         <S.Dialogs>
-                <Container>
-                    <DialogItem name='Ansar Khubiev' id='1'/>
-                    <DialogItem name='Karim Khubiev' id='2'/>
-                    <DialogItem name='Ayna Khubieva' id='3'/>
-                </Container>
-                <Container>
-                    <Message message='Hello, Ansar!'/>
-                    <Message message='Hello, Karim!'/>
-                    <Message message='Hello, Ayna!'/>
-                </Container>
+                <Container>{dialogElements}</Container>
+                <Container>{messagesElements}</Container>
         </S.Dialogs>
     );
 };

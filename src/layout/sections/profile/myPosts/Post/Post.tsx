@@ -4,6 +4,7 @@ import avatar from "../../../../../assets/images/avatar-default.png"
 type PostPropsType = {
     message: string
     likeCounts: number
+    id: string
 }
 
 export const Post = (props: PostPropsType) => {

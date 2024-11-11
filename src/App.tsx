@@ -8,16 +8,23 @@ import {Route, Routes} from "react-router-dom";
 import {Music} from "./layout/sections/music/Music";
 import {News} from "./layout/sections/news/News";
 import {Settings} from "./layout/sections/settings/Settings";
+import {DialogItemType, MessageType, PostType} from "./index";
 
-const App = () => {
+type AppPropsType = {
+    posts: PostType[]
+    dialogs: DialogItemType[]
+    messages: MessageType[]
+}
+
+const App = (props: AppPropsType) => {
     return (
         <StyledApp>
             <Header/>
             <NavBar/>
             <ContentWrap>
                 <Routes>
-                    <Route path="profile" element={<Profile/>}/>
-                    <Route path="dialogs/*" element={<Dialogs/>}/>
+                    <Route path="/" element={<Profile posts={props.posts}/>}/>
+                    <Route path="dialogs/*" element={<Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
                     <Route path="news" element={<News/>}/>
                     <Route path="music" element={<Music/>}/>
                     <Route path="settings" element={<Settings/>}/>

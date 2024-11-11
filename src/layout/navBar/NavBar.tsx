@@ -8,7 +8,7 @@ export const NavBar = () => {
         <S.NavBar>
             <S.Menu>
                 <S.LeftMenuItemContainer>
-                    <NavLink to="/profile" >
+                    <NavLink to="/" >
                         <Icon iconId='profile'/>
                         <span>Profile</span>
                     </NavLink>
