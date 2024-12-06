@@ -6,7 +6,7 @@ export const ProfileHeader = () => {
         <>
             <S.PageCover/>
             <S.ProfileHeaderWrapper>
-                <S.Avatar src={avatar} alt="Фотография пользователя"/>
+                <S.ProfileAvatar src={avatar} alt="Фотография пользователя"/>
                 <S.ProfileInfo>
                     <h2>Ansar Khubiev</h2>
                     <span>Дорогу осилит идущий</span>

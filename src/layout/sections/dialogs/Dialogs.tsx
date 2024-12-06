@@ -6,21 +6,24 @@ import {Message} from "./message/Message";
 import {DialogItemType, MessageType} from "../../../index";
 
 type DialogsPropsType = {
-    dialogs: DialogItemType[]
-    messages: MessageType[]
+    state: {
+        dialogs: DialogItemType[]
+        messages: MessageType[]
+    }
 }
 
 export const Dialogs = (props: DialogsPropsType) => {
 
 
-
-    const dialogElements = props.dialogs.map(d => <DialogsItem name={d.name} id={d.id}/>)
-    const messagesElements = props.messages.map(m => <Message message={m.message} id={m.id}/>)
+    const dialogItems = props.state.dialogs.map(d => <DialogsItem name={d.name} id={d.id}/>)
+    const messagesElements = props.state.messages.map(m => <Message message={m.message} id={m.id}/>)
 
     return (
         <S.Dialogs>
-                <Container>{dialogElements}</Container>
-                <Container>{messagesElements}</Container>
+            <Container>
+                {dialogItems}
+            </Container>
+            <S.ChatWrapper>{messagesElements}</S.ChatWrapper>
         </S.Dialogs>
     );
 };

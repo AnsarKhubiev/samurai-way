@@ -3,11 +3,6 @@ import {Container} from "../../../../../components/Container";
 
 const Post = styled(Container)`
   padding: 16px 20px;
-  
-  img {
-    width: 40px;
-    border-radius: 50%;
-  }
 `
 const PostHeader = styled.div`
   display: flex;

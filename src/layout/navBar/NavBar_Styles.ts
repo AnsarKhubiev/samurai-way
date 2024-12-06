@@ -30,7 +30,7 @@ const LeftMenuItemContainer = styled.li`
   }
   
   &:hover {
-    background-color: ${theme.colors.transparentGray};
+    background-color: ${theme.colors.transparentGray2};
     border-radius: 4px;
   }
 `

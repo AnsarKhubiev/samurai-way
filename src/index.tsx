@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import {GlobalStyle} from "./styles/Global.styled";
 import {BrowserRouter} from "react-router-dom";
+import state from './redux/State'
 
 export type MessageType = {
     message: string
@@ -18,28 +19,19 @@ export type PostType = {
     message: string
     likesCount: number
 }
+export type FriendType = {
+    id: string
+    name: string
+    surname: string
+    link: string
+}
 
-const posts = [
-    {id: '1', message: 'Hi, how are you?', likesCount: 5},
-    {id: '2', message: `It's my first post!`, likesCount: 15},
-]
 
-const dialogs = [
-    {id: '1', name: 'Ansar Khubiev'},
-    {id: '2', name: 'Karim Khubiev'},
-    {id: '3', name: 'Ayna Khubieva'},
-]
-
-const messages = [
-    {id: '1', message: 'Hello, Ansar!'},
-    {id: '2', message: 'Hello, Karim!'},
-    {id: '3', message: 'Hello, Ayna!'},
-]
 
 ReactDOM.render(
     <BrowserRouter>
         <GlobalStyle/>
-        <App posts={posts} dialogs={dialogs} messages={messages}/>
+        <App state={state} />
     </BrowserRouter>,
     document.getElementById('root')
 );

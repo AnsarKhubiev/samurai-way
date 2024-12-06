@@ -1,5 +1,6 @@
 import {S} from "./Post_Styles";
 import avatar from "../../../../../assets/images/avatar-default.png"
+import {Avatar} from "../../../../../components/Avatar";
 
 type PostPropsType = {
     message: string
@@ -11,7 +12,7 @@ export const Post = (props: PostPropsType) => {
     return (
         <S.Post>
             <S.PostHeader>
-                <img src={avatar} alt="avatar"/>
+                <Avatar src={avatar} alt="avatar" />
                 <span>Ansar Khubiev</span>
             </S.PostHeader>
             <S.PostText>

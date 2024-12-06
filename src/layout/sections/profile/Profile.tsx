@@ -1,10 +1,14 @@
 import {S} from "./Profile_Styles";
 import {ProfileHeader} from "./profileHeader/ProfileHeader";
 import {MyPosts} from "./myPosts/MyPosts";
-import {PostType} from "../../../index";
+import {FriendType, PostType} from "../../../index";
+import {Friends} from "./friends/Friends";
 
 type ProfilePropsType = {
-    posts: PostType[]
+    state:{
+        posts: PostType[]
+    }
+    friends: FriendType[]
 }
 
 export const Profile = (props: ProfilePropsType) => {
@@ -12,7 +16,8 @@ export const Profile = (props: ProfilePropsType) => {
     return (
         <S.Profile>
             <ProfileHeader/>
-            <MyPosts posts={props.posts}/>
+            <MyPosts posts={props.state.posts} />
+            <Friends friends={props.friends} />
         </S.Profile>
     );
 };
