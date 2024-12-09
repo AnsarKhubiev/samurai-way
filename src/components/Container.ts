@@ -7,4 +7,5 @@ export const Container = styled.div`
     border-radius: 10px;
     border: 1px solid ${theme.colors.transparentGray};
     margin: 0 0 16px;
+    padding: 14px;
 `

@@ -1,7 +1,7 @@
-import {FriendType} from "../../../../index";
 import Friend from "./friend/Friend";
 import {S} from "./Friends.styles";
 import {Container} from "../../../../components/Container";
+import {FriendType} from "../../../../redux/State";
 
 type FriendsPropsType = {
     friends: FriendType []
@@ -13,7 +13,7 @@ export const Friends = (props: FriendsPropsType) => {
 
     return (
         <Container>
-            <S.Title>Друзья</S.Title>
+            <h3>Друзья</h3>
             <S.CardsWrapper>
                 {friendsList}
             </S.CardsWrapper>

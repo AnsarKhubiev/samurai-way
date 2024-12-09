@@ -1,37 +1,37 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {GlobalStyle} from "./styles/Global.styled";
 import {BrowserRouter} from "react-router-dom";
-import state from './redux/State'
-
-export type MessageType = {
-    message: string
-    id: string
-}
-export type DialogItemType = {
-    name: string
-    id: string
-}
-export type PostType = {
-    id: string
-    message: string
-    likesCount: number
-}
-export type FriendType = {
-    id: string
-    name: string
-    surname: string
-    link: string
-}
+import {GlobalStyle} from "./styles/Global.styled";
+import {addMessage, addPost, state, subscribe, updateNewPostText} from "./redux/State";
 
 
+const renderEntireTree = () => {
+    ReactDOM.render(
+        <BrowserRouter>
+            <GlobalStyle/>
+            <App state={state}
+                 addPost={addPost}
+                 addMessage={addMessage}
+                 updateNewPostText={updateNewPostText}
+            />
+        </BrowserRouter>,
+        document.getElementById('root')
+    );
+
+}
 
 ReactDOM.render(
     <BrowserRouter>
         <GlobalStyle/>
-        <App state={state} />
+        <App
+            state={state}
+            addPost={addPost}
+            addMessage={addMessage}
+            updateNewPostText={updateNewPostText}
+        />
     </BrowserRouter>,
     document.getElementById('root')
 );
+
+subscribe(renderEntireTree)

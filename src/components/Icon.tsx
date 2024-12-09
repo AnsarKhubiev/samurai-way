@@ -1,24 +1,21 @@
-import React from "react";
-import sprite from '../assets/images/sprite.svg'
+import iconsSprite from '../assets/images/icons-sprite.svg'
 
-type IconPropsType = {
-    iconId: string
-    fill?: string
-    height?: number
-    width?: number
-    viewBox?: string
+export type IconPropsType = {
+    iconId?: string,
+    width?: number,
+    height?: number,
+    color?: string
 }
 
-export const Icon = ({iconId, fill, width, viewBox, height}: IconPropsType) => {
+export const Icon = (props: IconPropsType) => {
     return (
-        <svg
-            fill={fill || 'none'}
-            height={height || 20}
-            width={width || 20}
-            viewBox={viewBox || '0 0 20 20'}
-            xmlns="http://www.w3.org/2000/svg"
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width={`${props.width || 24}px`}
+             height={`${props.width || 24}px`}
+             viewBox={'0 0 24 24'}
+             fill={props.color || 'currentColor'}
         >
-            <use xlinkHref={`${sprite}#${iconId}`}/>
+            <use xlinkHref={`${iconsSprite}#${props.iconId}`}/>
         </svg>
     );
 };

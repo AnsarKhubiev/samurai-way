@@ -1,43 +1,46 @@
+import React from "react";
 import "./App.css";
 import {Header} from "./layout/header/Header";
 import {NavBar} from "./layout/navBar/NavBar";
-import styled from "styled-components";
 import {Profile} from "./layout/sections/profile/Profile";
 import {Dialogs} from "./layout/sections/dialogs/Dialogs";
 import {Route, Routes} from "react-router-dom";
 import {Music} from "./layout/sections/music/Music";
 import {News} from "./layout/sections/news/News";
 import {Settings} from "./layout/sections/settings/Settings";
-import {DialogItemType, FriendType, MessageType, PostType} from "./index";
+import {S} from "./App_Styles";
+import {DialogsPageType, FriendType, ProfilePageType, updateNewPostText} from "./redux/State";
 
 type AppPropsType = {
     state: {
-        profilePage: {
-            posts: PostType[]
-
-        }
-        dialogsPage: {
-            messages: MessageType[]
-            dialogs: DialogItemType[]
-        }
+        profilePage: ProfilePageType
+        dialogsPage: DialogsPageType
         friends: FriendType[]
     }
+    addPost: () => void
+    addMessage: (message: string) => void
+    updateNewPostText: (newText: string) => void
 }
 
-const App = (props: AppPropsType) => {
+const App: React.FC<AppPropsType> = (props) => {
     return (
-        <StyledApp>
+        <S.App>
             <Header/>
             <NavBar/>
-            <ContentWrap>
+            <S.ContentWrap>
                 <Routes>
                     <Route
                         path="/"
-                        element={<Profile state={props.state.profilePage} friends={props.state.friends} />}
+                        element={<Profile
+                            profilePage={props.state.profilePage}
+                            friends={props.state.friends}
+                            addPost={props.addPost}
+                            updateNewPostText={updateNewPostText}
+                        />}
                     />
                     <Route
                         path="dialogs/*"
-                        element={<Dialogs state={props.state.dialogsPage}/>}
+                        element={<Dialogs addMessage={props.addMessage} state={props.state.dialogsPage}/>}
                     />
                     <Route
                         path="news"
@@ -52,27 +55,10 @@ const App = (props: AppPropsType) => {
                         element={<Settings/>}
                     />
                 </Routes>
-            </ContentWrap>
-        </StyledApp>
+            </S.ContentWrap>
+        </S.App>
     )
 }
 export default App;
 
 
-const StyledApp = styled.div`
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 15px;
-    display: grid;
-    grid-template-columns: 2fr 10fr;
-    grid-template-rows: 48px 1fr;
-    gap: 16px;
-    grid-template-areas:
-            'h h'
-            'n c';
-`
-
-const ContentWrap = styled.div`
-    grid-area: c;
-`

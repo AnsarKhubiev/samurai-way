@@ -1,8 +1,8 @@
 import React from 'react';
 import {S} from "./Friend.styles";
 import photo from "../../../../../assets/images/avatar.png";
-import {FriendType} from "../../../../../index";
 import {Avatar} from "../../../../../components/Avatar";
+import {FriendType} from "../../../../../redux/State";
 
 type FriendPropsType = {
     friend: FriendType
