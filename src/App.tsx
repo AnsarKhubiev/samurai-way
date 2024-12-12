@@ -9,17 +9,11 @@ import {Music} from "./layout/sections/music/Music";
 import {News} from "./layout/sections/news/News";
 import {Settings} from "./layout/sections/settings/Settings";
 import {S} from "./App_Styles";
-import {DialogsPageType, FriendType, ProfilePageType, updateNewPostText} from "./redux/State";
+import {ActionType, StoreType} from "./redux/State";
 
 type AppPropsType = {
-    state: {
-        profilePage: ProfilePageType
-        dialogsPage: DialogsPageType
-        friends: FriendType[]
-    }
-    addPost: () => void
-    addMessage: (message: string) => void
-    updateNewPostText: (newText: string) => void
+    store: StoreType
+    dispatch: (action: ActionType) => void
 }
 
 const App: React.FC<AppPropsType> = (props) => {
@@ -32,15 +26,14 @@ const App: React.FC<AppPropsType> = (props) => {
                     <Route
                         path="/"
                         element={<Profile
-                            profilePage={props.state.profilePage}
-                            friends={props.state.friends}
-                            addPost={props.addPost}
-                            updateNewPostText={updateNewPostText}
+                            profilePage={props.store._state.profilePage}
+                            friends={props.store._state.friends}
+                            dispatch={props.dispatch.bind(props.store)}
                         />}
                     />
                     <Route
                         path="dialogs/*"
-                        element={<Dialogs addMessage={props.addMessage} state={props.state.dialogsPage}/>}
+                        element={<Dialogs store={props.store} />}
                     />
                     <Route
                         path="news"

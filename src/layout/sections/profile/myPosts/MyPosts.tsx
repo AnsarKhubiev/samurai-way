@@ -1,16 +1,15 @@
 import {S} from "./MyPosts_Styles";
 import {Post} from "./Post/Post";
-import React, {ChangeEvent, useRef} from "react";
+import React from "react";
 import {Input} from "../../../../components/Input";
 import {theme} from "../../../../styles/theme";
 import {Button} from "../../../../components/Button";
-import {PostType} from "../../../../redux/State";
+import {ActionType, addPostAC, PostType, updateNewPostTextAC} from "../../../../redux/State";
 
 type MyPostsPropsType = {
     posts: PostType[]
     newPostText: string
-    addPost: () => void
-    updateNewPostText: (newText: string) => void
+    dispatch: (action: ActionType) => void
 }
 
 export const MyPosts: React.FC<MyPostsPropsType> = (props) => {
@@ -19,13 +18,9 @@ export const MyPosts: React.FC<MyPostsPropsType> = (props) => {
         return <Post key={p.id} id={p.id} message={p.message} likeCounts={p.likesCount}/>
     })
 
-    const addPost = () => {
-            props.addPost()
-    }
+    const addPost = () => props.dispatch(addPostAC())
 
-    const onPostChange = (value: string) => {
-        props.updateNewPostText(value)
-    }
+    const onPostChange = (newText: string) => props.dispatch(updateNewPostTextAC(newText));
 
     return (
         <div>

@@ -10,7 +10,8 @@ const PostHeader = styled.div`
   column-gap: 15px;
 `
 const PostText = styled.div`
-padding: 8px 0;
+    padding: 8px 0;
+    word-wrap: anywhere;
 `
 const PostButtons = styled.div`
     padding-top: 12px;

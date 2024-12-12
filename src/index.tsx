@@ -3,35 +3,20 @@ import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import {GlobalStyle} from "./styles/Global.styled";
-import {addMessage, addPost, state, subscribe, updateNewPostText} from "./redux/State";
+import {StateType, store} from "./redux/State";
 
 
-const renderEntireTree = () => {
+const rerenderEntireTree = (state: StateType) => {
     ReactDOM.render(
         <BrowserRouter>
             <GlobalStyle/>
-            <App state={state}
-                 addPost={addPost}
-                 addMessage={addMessage}
-                 updateNewPostText={updateNewPostText}
-            />
+            <App store={store} dispatch={store.dispatch.bind(store)}/>
         </BrowserRouter>,
         document.getElementById('root')
     );
 
 }
 
-ReactDOM.render(
-    <BrowserRouter>
-        <GlobalStyle/>
-        <App
-            state={state}
-            addPost={addPost}
-            addMessage={addMessage}
-            updateNewPostText={updateNewPostText}
-        />
-    </BrowserRouter>,
-    document.getElementById('root')
-);
+rerenderEntireTree(store.getState())
 
-subscribe(renderEntireTree)
+store.subscribe(rerenderEntireTree)

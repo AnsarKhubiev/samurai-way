@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React from "react";
 import {S} from "./Dialogs_Styles"
 import {Container} from "../../../components/Container";
 import {DialogsItem} from "./dialogsItem/DialogsItem";
@@ -6,28 +6,21 @@ import {Message} from "./message/Message";
 import {Icon} from "../../../components/Icon";
 import {theme} from "../../../styles/theme";
 import {Input} from "../../../components/Input";
-import {DialogType, MessageType} from "../../../redux/State";
+import {sendMessageAC, updateNewMessageTextAC, StoreType} from "../../../redux/State";
 
 type DialogsPropsType = {
-    state: {
-        dialogs: DialogType[]
-        messages: MessageType[]
-    }
-    addMessage: (message: string) => void
+    store: StoreType
 }
 
 export const Dialogs = (props: DialogsPropsType) => {
+    const state = props.store.getState().dialogsPage
 
-    const dialogItems = props.state.dialogs.map(d => <DialogsItem key={d.id} name={d.name} id={d.id}/>)
-    const messagesElements = props.state.messages.map(m => <Message key={m.id} message={m.message} id={m.id}/>)
+    const dialogItems = state.dialogs.map(d => <DialogsItem key={d.id} name={d.name} id={d.id}/>)
+    const messagesElements = state.messages.map(m => <Message key={m.id} message={m.message} id={m.id}/>)
 
-    const addMessage = () => {
-        // const element = newMessageElement.current
-        // if (element) {
-        //     props.addMessage(element.value)
-        //     element.value = ''
-        // }
-    }
+    const onSendMessageClick = () => props.store.dispatch(sendMessageAC())
+
+    const onMessageChange = (newText: string) => props.store.dispatch(updateNewMessageTextAC(newText));
 
     return (
         <S.Dialogs>
@@ -36,9 +29,10 @@ export const Dialogs = (props: DialogsPropsType) => {
             </Container>
             <Container>
                 <S.ChatBody>{messagesElements}</S.ChatBody>
+
                 <S.ChatInputWrapper>
-                    <Input callback={addMessage}/>
-                    <S.Button onClick={addMessage}>
+                    <Input value={state.newMessageText} callback={onMessageChange}/>
+                    <S.Button onClick={onSendMessageClick}>
                         <Icon iconId={'send'} color={theme.colors.transparentGray}/>
                     </S.Button>
                 </S.ChatInputWrapper>
